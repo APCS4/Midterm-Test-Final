@@ -2,8 +2,8 @@
 comment0.target=Question
 comment1.params=
 comment1.target=Question()
-comment2.params=chA\ chB\ chC\ chD\ quest\ ans
-comment2.target=Question(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ char)
+comment2.params=chA\ chB\ chC\ chD\ chE\ quest\ ans
+comment2.target=Question(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ char)
 comment3.params=
 comment3.target=boolean\ getAnswer()
 comment3.text=\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\n\n\ @param\ \ y\ \ a\ sample\ parameter\ for\ a\ method\n\ @return\ \ \ \ the\ sum\ of\ x\ and\ y\n

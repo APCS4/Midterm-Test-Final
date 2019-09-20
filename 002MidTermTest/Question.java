@@ -20,11 +20,12 @@ public class Question
         
     }
     
-    public Question(String chA, String chB, String chC, String chD, String quest, char ans){
+    public Question(String chA, String chB, String chC, String chD, String chE, String quest, char ans){
      choiceA = chA;
      choiceB = chB;
      choiceC = chC;
      choiceD = chD;
+     choiceE = chE;
      question = quest;
      answerKey = ans;
     }
