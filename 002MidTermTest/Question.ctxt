@@ -1,9 +1,11 @@
 #BlueJ class context
 comment0.target=Question
-comment1.params=
-comment1.target=boolean\ getAnswer()
-comment1.text=\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\n\n\ @param\ \ y\ \ a\ sample\ parameter\ for\ a\ method\n\ @return\ \ \ \ the\ sum\ of\ x\ and\ y\n
-comment2.params=ansCorrect
-comment2.target=void\ calcResult(boolean)
+comment1.params=chA\ chB\ chC\ chD\ ans
+comment1.target=Question(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String)
+comment2.params=
+comment2.target=boolean\ getAnswer()
 comment2.text=\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\n\n\ @param\ \ y\ \ a\ sample\ parameter\ for\ a\ method\n\ @return\ \ \ \ the\ sum\ of\ x\ and\ y\n
-numComments=3
+comment3.params=ansCorrect
+comment3.target=void\ calcResult(boolean)
+comment3.text=\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\n\n\ @param\ \ y\ \ a\ sample\ parameter\ for\ a\ method\n\ @return\ \ \ \ the\ sum\ of\ x\ and\ y\n
+numComments=4
