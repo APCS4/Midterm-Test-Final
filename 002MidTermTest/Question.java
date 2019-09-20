@@ -16,12 +16,17 @@ public class Question
     char answerA='A', answerB='B', answerC='C', answerD='D', answerE='E';
     char answerKey;
     
-    public Question(String chA, String chB, String chC, String chD, String ans){
+    public Question(){
+        
+    }
+    
+    public Question(String chA, String chB, String chC, String chD, String quest, char ans){
      choiceA = chA;
      choiceB = chB;
      choiceC = chC;
      choiceD = chD;
-     answer = ans;
+     question = quest;
+     answerKey = ans;
     }
     /**
      * An example of a method - replace this comment with your own
