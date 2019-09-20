@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Printbinary
+comment0.text=\n\ Write\ a\ description\ of\ class\ Binary\ here.\n\n\ @author\ (your\ name)\n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=arg\ binaryLength
+comment1.target=java.lang.String\ zeroPadToBinary(int,\ int)
+comment2.params=
+comment2.target=Printbinary()
+comment2.text=\n\ Constructor\ for\ objects\ of\ class\ Binary\n
+numComments=3
