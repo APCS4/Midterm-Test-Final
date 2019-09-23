@@ -27,8 +27,9 @@ public class Counting
      */
     public void updateCounters(Boolean isCorrect)
     {
-        if (isCorrect)
+        if (isCorrect) 
             correct++;
+        
         questions++;
     }
     

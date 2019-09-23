@@ -1,4 +1,5 @@
 
+
 /**
  * MathOpFun is intended to teach computer math and operator principles, 
  *  plus..
@@ -35,8 +36,8 @@ public class MathOpsFun
         // randomize logic to pick supplied amount of questions from method parameter, ie 10 
         
         // randomizing logic here to pick arg1 <= 99, arg2 <=9 with Modulo != 0
-        tally.updateCounters( IntMathDivAndModulo(46, '/', 7) );
-        tally.updateCounters( IntMathDivAndModulo(46, '%', 7) );
+        tally.updateCounters( IntMathDivAndModulo(28, '/', 7) );
+        tally.updateCounters( IntMathDivAndModulo(4, '*', 3) );
         
         tally.printCounters();
         
@@ -55,14 +56,19 @@ public class MathOpsFun
         // prepare question from Question class
         Question question = new Question();
         
+        //Convert to Binary
+        Printbinary convert = new Printbinary();
+        String num1 = convert.zeroPadToBinary(arg1, 4);
+        String num2 = convert.zeroPadToBinary(arg2, 4);
+        
         // format question
-        question.question = String.format("What is (int)" + arg1 + " " + "%s" + " (int)" + arg2, operator );
+        question.question = String.format("What is " + num1 + " " + "%s " + num2, operator );
         
         // format question choices
-        question.choiceA = String.format("%f",(float)arg1/(float)arg2);
-        question.choiceB = String.format("%x",arg1/arg2);
-        question.choiceC = String.format("%f",(float)arg1*(float)arg2);
-        question.choiceD = String.format("%x",arg1%arg2);
+        question.choiceA = String.format("%s",convert.zeroPadToBinary((arg1/arg2),4));
+        question.choiceB = String.format("%s",convert.zeroPadToBinary((arg1*arg2),4));
+        question.choiceC = String.format("%s",convert.zeroPadToBinary((arg1|arg2),4));
+        question.choiceD = String.format("%s",convert.zeroPadToBinary((arg1&arg2),4));
         question.choiceE = "None of the above";
         
         // real time calc answer based off args AND operator
@@ -83,16 +89,15 @@ public class MathOpsFun
             
         // format question answer based off of operation calculation
         question.answer =  String.format(
-            "(int)"+arg1 +          // arg1
+            num1 +          // arg1
             " "+
             "%s"+                   // operator
             " " +        
-            "(int)"+ arg2 +         // arg2
+            num2 +         // arg2
             " = " + 
             answerCalc              // answer
             ,operator);             // operator parameter % 
                                     // requires var (may be hidden feature :)
-        
         // getAnswer return true if question is correct
         return question.getAnswer();
 

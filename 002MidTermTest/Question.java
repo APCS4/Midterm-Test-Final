@@ -15,6 +15,7 @@ public class Question
     
     char answerA='A', answerB='B', answerC='C', answerD='D', answerE='E';
     char answerKey;
+   
     
     /**
      * An example of a method - replace this comment with your own
@@ -39,10 +40,12 @@ public class Question
         do {
             System.out.print ("Enter selection (A-E) --> ");
             sc = new Scanner(System.in);                                // Input from keyboard
-            choice = Character.toUpperCase((char) sc.next().charAt(0)); // Convert to upper case
+            choice = Character.toUpperCase(sc.next().charAt(0)); // Convert to upper case
             if (choice >= 'A' && choice <= 'E') break;
             System.out.println(" (invalid) ");
         } while ( true );                                               // until valid input
+        
+        
         
         if (choice == answerKey) System.out.print("(correct) ");
         else System.out.print("(missed it!) ");
