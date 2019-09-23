@@ -6,6 +6,7 @@
  * @version (a version number or a date)
  */
 import java.util.Scanner; 
+import java.util.Random;
 
 public class Question
 {
@@ -16,10 +17,20 @@ public class Question
     char answerA='A', answerB='B', answerC='C', answerD='D', answerE='E';
     char answerKey;
     
+    String answerOrder[] = {"", "", "", "", ""};
+    
+    //Prevents errors if no parameters are sent
     public Question(){
-        
+        choiceA = "Error: Choice not loaded";
+        choiceB = "Error: Choice not loaded";
+        choiceC = "Error: Choice not loaded";
+        choiceD = "Error: Choice not loaded";
+        choiceE = "Error: Choice not loaded";
+        question = "Error: Qustion not loaded";
+        answerKey = 'x';
     }
     
+    //Constructor assigning the passed strings to their applicable instance variables
     public Question(String chA, String chB, String chC, String chD, String chE, String quest, char ans){
      choiceA = chA;
      choiceB = chB;
@@ -29,12 +40,14 @@ public class Question
      question = quest;
      answerKey = ans;
     }
+    
     /**
      * An example of a method - replace this comment with your own
      *
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
+    
     public boolean getAnswer()
     {
         char choice;
