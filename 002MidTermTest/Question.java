@@ -95,11 +95,14 @@ public class Question
                     System.out.print("Enter selection (True/False) --> ");
                     sc = new Scanner(System.in);
                     tfChoice = sc.nextLine();
-                    if(tfChoice == "true" || tfChoice == "false") break;
+                    tfChoice = tfChoice.toUpperCase();
+                    if(tfChoice.equals("TRUE") || tfChoice.equals("FALSE")){
+                        break;
+                    }
                     System.out.println(" (invalid) ");
                 }while( true );
                 
-                if(tfChoice == tfAnswerKey) System.out.print(" (correct) ");
+                if(tfChoice.equalsIgnoreCase(tfAnswerKey)) System.out.print(" (correct) ");
                 else System.out.print(" (missed it!) ");
                 System.out.println(answer);
                 System.out.println();
