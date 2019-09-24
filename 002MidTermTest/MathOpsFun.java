@@ -15,7 +15,7 @@
  * @author John Mortensen
  * @version 1.0
  */
-
+import java.lang.Math;
 
 public class MathOpsFun
 {
@@ -34,10 +34,20 @@ public class MathOpsFun
         Counting tally = new Counting();
 
         // randomize logic to pick supplied amount of questions from method parameter, ie 10 
+        int arg1;
+        do{
+        arg1 = (int) (Math.random()*10);
+        System.out.println(arg1);
+        } while (arg1 == 0 || arg1 == 1);
+        int arg2;
+        do {
+            arg2 = (int) (Math.random()*10);
+        } while(arg2 > arg1);
         
         // randomizing logic here to pick arg1 <= 99, arg2 <=9 with Modulo != 0
-        tally.updateCounters( IntMathDivAndModulo(28, '/', 7) );
+        tally.updateCounters( IntMathDivAndModulo(arg1, '/', arg2) );
         tally.updateCounters( IntMathDivAndModulo(4, '*', 3) );
+        
         
         tally.printCounters();
         
