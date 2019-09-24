@@ -16,7 +16,8 @@ public class Question
     
     char answerA='A', answerB='B', answerC='C', answerD='D', answerE='E';
     char answerKey;
-    
+    String tfAnswerKey;
+    String type;
     String answerOrder[] = {"", "", "", "", ""};
     
     //Prevents errors if no parameters are sent
@@ -30,7 +31,7 @@ public class Question
         answerKey = 'x';
     }
     
-    //Constructor assigning the passed strings to their applicable instance variables
+    //Constructor for creating a 5 choice (A-E) multiple choice question
     public Question(String chA, String chB, String chC, String chD, String chE, String quest, char ans){
      choiceA = chA;
      choiceB = chB;
@@ -39,6 +40,14 @@ public class Question
      choiceE = chE;
      question = quest;
      answerKey = ans;
+     type = "mc";
+    }
+    
+    //Constructor for making a True/False question
+    public Question(String quest, String ans){
+        question = quest;
+        tfAnswerKey = ans;
+        type = "tf";
     }
     
     /**
@@ -50,31 +59,53 @@ public class Question
     
     public boolean getAnswer()
     {
-        char choice;
+        char choice = 'x';
+        String tfChoice = "x";
         Scanner sc;
-        
-        // Implement this to randomize order
-        System.out.println(question);
-        System.out.println("A. " + choiceA );
-        System.out.println("B. " + choiceB );
-        System.out.println("C. " + choiceC );
-        System.out.println("D. " + choiceD );
-        System.out.println("E. " + choiceE );
-        
-        // IO logic of getting answer from console
-        do {
-            System.out.print ("Enter selection (A-E) --> ");
-            sc = new Scanner(System.in);                                // Input from keyboard
-            choice = Character.toUpperCase((char) sc.next().charAt(0)); // Convert to upper case
-            if (choice >= 'A' && choice <= 'E') break;
-            System.out.println(" (invalid) ");
-        } while ( true );                                               // until valid input
-        
-        if (choice == answerKey) System.out.print("(correct) ");
-        else System.out.print("(missed it!) ");
-        System.out.println(answer);
-        System.out.println();
-        
+        switch(type){
+            case "mc":
+                // Implement this to randomize order
+                System.out.println(question);
+                System.out.println("A. " + choiceA );
+                System.out.println("B. " + choiceB );
+                System.out.println("C. " + choiceC );
+                System.out.println("D. " + choiceD );
+                System.out.println("E. " + choiceE );
+                
+                // IO logic of getting answer from console
+                do {
+                    System.out.print ("Enter selection (A-E) --> ");
+                    sc = new Scanner(System.in);                                // Input from keyboard
+                    choice = Character.toUpperCase((char) sc.next().charAt(0)); // Convert to upper case
+                    if (choice >= 'A' && choice <= 'E') break;
+                    System.out.println(" (invalid) ");
+                } while ( true );                                               // until valid input
+                
+                if (choice == answerKey) System.out.print("(correct) ");
+                else System.out.print("(missed it!) ");
+                System.out.println(answer);
+                System.out.println();
+                break;
+            case "tf":
+                System.out.println(question);
+                System.out.println("True");
+                System.out.println("False");
+                
+                do{
+                    System.out.print("Enter selection (True/False) --> ");
+                    sc = new Scanner(System.in);
+                    tfChoice = sc.nextLine();
+                    if(tfChoice == "true" || tfChoice == "false") break;
+                    System.out.println(" (invalid) ");
+                }while( true );
+                
+                if(tfChoice == tfAnswerKey) System.out.print(" (correct) ");
+                else System.out.print(" (missed it!) ");
+                System.out.println(answer);
+                System.out.println();
+                break;
+    }
+    
         /*Boolean ansStatus = (choice == answerKey);
         calcResult(ansStatus)
         return ansStatus;*/
