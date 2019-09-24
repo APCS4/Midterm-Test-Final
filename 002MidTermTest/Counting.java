@@ -7,42 +7,52 @@
  */
 public class Counting
 {
-    int correct;        // correct answers
-    int questions;      // questions attempted
+    int correct[];        // correct answers
+    int questions[];      // questions attempted
+    int i;
     /**
      * Constructor for objects of class Counting
      */
     public Counting()
     {
-        // initialise instance variables
-        correct = 0;
-        questions = 0;
+        // initialise arrays
+        correct = new int[4];
+        questions = new int[4];
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public void updateCounters(Boolean isCorrect)
+    public void updateCounters(Boolean isCorrect, int station)
     {
-        if (isCorrect)
-            correct++;
-        questions++;
+        switch (station)
+        {
+            case 1:
+                if (isCorrect)
+                    correct[0]++;
+                questions[0]++;
+                break;
+            case 2:
+                if (isCorrect)
+                    correct[1]++;
+                questions[1]++;
+                break;
+            case 3:
+                if (isCorrect)
+                    correct[2]++;
+                questions[2]++;
+                break;
+            case 4:
+                if (isCorrect)
+                    correct[3]++;
+                questions[3]++;
+                break;
+        }
     }
-    
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
+
     public void printCounters()
     {
-        System.out.print("Results: ");
-        System.out.print(correct);
-        System.out.print(" of ");
-        System.out.println(questions);
+        System.out.println("Results:");
+        for (i = 0; i <= 3; i++)
+        {
+            System.out.println(correct[i] + "out of " + questions[i]);
+        }
     }
 }
