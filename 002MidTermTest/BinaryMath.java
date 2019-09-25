@@ -22,7 +22,10 @@ public class BinaryMath
     {
         int nums[] = BinaryMath.getTwoRandomNumbers();
         System.out.println("1>" + nums[0] + " 2>" + nums[1]);
-        System.out.println(BinaryMath.zeroPadToBinary(nums[0], 5));
+        
+        String binary1 = BinaryMath.zeroPadToBinary(nums[0], 4);
+        String binary2 = BinaryMath.zeroPadToBinary(nums[1], 4);
+        
     }
     
     static String zeroPadToBinary(int arg, int binaryLength)
@@ -37,10 +40,19 @@ public class BinaryMath
         do{
             args = new Random().ints(1, 15).distinct().limit(2).toArray();
         } while (args[0] <= 1 || args[1] > args[0] || args[1] <= 1 || args[0] % args[1] != 0);
-
+       
+        String choiceA = String.format("%x", args[0]/args[1]);
+        System.out.println(choiceA);
         return args;
     }
-   
+ 
+    }
+        
+        
+        
+        
+  
+ 
 
 
-}
+
