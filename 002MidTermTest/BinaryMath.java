@@ -15,12 +15,18 @@ public class BinaryMath
      */
     public BinaryMath()
     {
+        Counting tally = new Counting();
+        
+        // randomizing logic here to pick arg1 <= 99, arg2 <=9 with Modulo != 0
+       
+        tally.printCounters();
         
     }    
     
     public static void main(String[] args)
     {
         int nums[] = BinaryMath.getTwoRandomNumbers();
+        
         System.out.println("1>" + nums[0] + " 2>" + nums[1]);
         
         String binary1 = BinaryMath.zeroPadToBinary(nums[0], 4);
@@ -33,19 +39,48 @@ public class BinaryMath
         return Integer.toBinaryString((1<<binaryLength)| arg).substring(1);
     }
     
-    static public int[] getTwoRandomNumbers()
+    public static int[] getTwoRandomNumbers()
     {
+        Question question = new Question();
+        
         int args[];
         
         do{
             args = new Random().ints(1, 15).distinct().limit(2).toArray();
         } while (args[0] <= 1 || args[1] > args[0] || args[1] <= 1 || args[0] % args[1] != 0);
        
-        String choiceA = String.format("%x", args[0]/args[1]);
-        System.out.println(choiceA);
+        //BinaryMath.formatQuestion(args[0],'/', args[1]);
+        
         return args;
     }
- 
+    
+    public boolean formatQuestion(int first, char operator, int second) {
+        
+        Question question = new Question();
+        
+        question.choiceA = String.format("%x", first/second);
+        question.choiceB = String.format("%x", first*second);
+        question.choiceC = String.format("%x", first|second);
+        question.choiceD = String.format("%x", first&second);
+        question.choiceE = "None of the above";
+        
+        int answerCalc;
+            switch(operator)
+                {
+                 case '/':
+                    answerCalc = first / second;
+                    question.answerKey = question.answerB;
+                    break;
+                 case '%':
+                    answerCalc = first % second;
+                    question.answerKey = question.answerD;
+                    break;
+                 default: // not supported
+                    
+                 return false;
+        }
+        return question.getAnswer();
+        }
     }
         
         

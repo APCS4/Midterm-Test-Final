@@ -9,4 +9,6 @@ comment3.params=arg\ binaryLength
 comment3.target=java.lang.String\ zeroPadToBinary(int,\ int)
 comment4.params=
 comment4.target=int[]\ getTwoRandomNumbers()
-numComments=5
+comment5.params=first\ operator\ second
+comment5.target=boolean\ formatQuestion(int,\ char,\ int)
+numComments=6
