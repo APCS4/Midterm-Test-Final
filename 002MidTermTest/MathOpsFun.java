@@ -35,8 +35,8 @@ public class MathOpsFun
         // randomize logic to pick supplied amount of questions from method parameter, ie 10 
         
         // randomizing logic here to pick arg1 <= 99, arg2 <=9 with Modulo != 0
-        tally.updateCounters( IntMathDivAndModulo(46, '/', 7) );
-        tally.updateCounters( IntMathDivAndModulo(46, '%', 7) );
+        tally.updateCounters( IntMathDivAndModulo(46, '/', 7), 1);
+        tally.updateCounters( IntMathDivAndModulo(46, '%', 7), 1);
         
         tally.printCounters();
         
