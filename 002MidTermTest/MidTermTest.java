@@ -55,8 +55,8 @@ public class MidTermTest
      MathOpsFun math = new MathOpsFun();
      math.askQuestion(); 
      
-     //BinaryMath bmath = new BinaryMath(); 
-     //bmath.askQuestion(); 
+     BinaryMath bmath = new BinaryMath(); 
+     bmath.askQuestion(); 
      
     }
     
