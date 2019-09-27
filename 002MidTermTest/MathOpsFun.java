@@ -30,6 +30,10 @@ public class MathOpsFun
     public MathOpsFun()
     {
         
+    }
+  
+    public void askQuestion() {
+        System.out.println("Inside MathOpsFun");
         Counting tally = new Counting();
 
         // randomize logic to pick supplied amount of questions from method parameter, ie 10 
@@ -39,9 +43,8 @@ public class MathOpsFun
         tally.updateCounters( IntMathDivAndModulo(46, '%', 7), 1);
         
         tally.printCounters();
-        
+    
     }
-  
     /**
      * IntMathDivAndModulo 
      *

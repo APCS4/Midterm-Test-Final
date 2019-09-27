@@ -23,7 +23,7 @@ public class BinaryMath
         
     }    
     
-    public static void main(String[] args)
+    public  void askQuestion()
     {
         int nums[] = BinaryMath.getTwoRandomNumbers();
         

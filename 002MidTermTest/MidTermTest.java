@@ -1,3 +1,12 @@
+
+
+
+
+
+
+
+
+import java.util.*;
 /**
  * MidTermTest is intended to teach Object Oriented Methodology, the JAVA language,
  * Computer Science principles, and Agile project methodolgy while be very active
@@ -27,6 +36,9 @@
  */
 public class MidTermTest
 {
+    
+  static Scanner sc = new Scanner(System.in);  
+  
   int correct = 0;
   int questions = 0;
   /**
@@ -37,11 +49,17 @@ public class MidTermTest
   public static void main(String[] args)
   {
      // BlueJ clear console command
-     System.out.print("\u000C");
+     Shortcuts.clearScreen(); 
      
      // MathOpFun is Class that askQuestions about Math Operators
      MathOpsFun math = new MathOpsFun();
+     math.askQuestion(); 
+     
+     //BinaryMath bmath = new BinaryMath(); 
+     //bmath.askQuestion(); 
      
     }
+    
+    
 }
 

@@ -17,7 +17,7 @@ public class Question
     char answerA='A', answerB='B', answerC='C', answerD='D', answerE='E';
     char answerKey;
     String tfAnswerKey;
-    String type;
+    String type = "mc";
     String answerOrder[] = {"", "", "", "", ""};
     
     //Prevents errors if no parameters are sent
@@ -29,6 +29,7 @@ public class Question
         choiceE = "Error: Choice not loaded";
         question = "Error: Qustion not loaded";
         answerKey = 'x';
+        
     }
     
     //Constructor for creating a 5 choice (A-E) multiple choice question
@@ -61,7 +62,7 @@ public class Question
     {
         char choice = 'x';
         String tfChoice = "x";
-        Scanner sc;
+        Scanner sc = null;
         switch(type){
             case "mc":
                 // Implement this to randomize order
