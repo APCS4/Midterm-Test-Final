@@ -1,10 +1,12 @@
 #BlueJ class context
 comment0.target=Shortcuts
-comment0.text=\n\ Write\ a\ description\ of\ class\ Shortcuts\ here.\n\n\ @author\ (your\ name)\n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Shortcuts\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=min\ max\ x
 comment1.target=boolean\ checkRange(int,\ int,\ int)
 comment2.params=
 comment2.target=void\ displayLine()
 comment3.params=
 comment3.target=void\ clearScreen()
-numComments=4
+comment4.params=min\ max
+comment4.target=int\ getInt(int,\ int)
+numComments=5

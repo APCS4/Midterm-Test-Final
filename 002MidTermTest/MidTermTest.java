@@ -41,6 +41,7 @@ public class MidTermTest
   
   int correct = 0;
   int questions = 0;
+  static int counter = 0; 
   /**
    *  The main program for the MidTerm class
    *
@@ -52,14 +53,58 @@ public class MidTermTest
      Shortcuts.clearScreen(); 
      
      // MathOpFun is Class that askQuestions about Math Operators
-     MathOpsFun math = new MathOpsFun();
-     math.askQuestion(); 
      
-     BinaryMath bmath = new BinaryMath(); 
-     bmath.askQuestion(); 
+     runMenu(); 
+     
      
     }
     
+    private static void runMenu() {
+     int runNumber = 0;
+        infiniteLoop: 
+    for(;;) {
+    displayMenu();
+    runNumber = Shortcuts.getInt(0,counter);
+    Shortcuts.clearScreen();
     
+    switch(runNumber) {
+    case 0:
+    System.out.println("Running MathOps Fun ");
+    MathOpsFun math = new MathOpsFun();
+    math.askQuestion(); 
+    break; 
+    
+    case 1:
+    System.out.println("Running BinaryMath");
+    BinaryMath bmath = new BinaryMath(); 
+    bmath.askQuestion(); 
+    break; 
+    
+    case 2:
+    System.out.println("Exiting...");
+    break infiniteLoop;
+    
+    default: 
+    System.out.println("This is not valid. Please try again"); 
+    }    
+    
+    //sc.nextLine();
+    sc.nextLine(); //Needs to be called twice in order to function properly
+    } 
+    
+    }
+    
+    private static void displayMenu() {
+        counter = 0; 
+        Shortcuts.clearScreen(); 
+        
+        System.out.println("Which test would you like to take?");
+        Shortcuts.displayLine(); 
+        System.out.println(counter + ". MathOps Fun"); 
+        counter++;
+        System.out.println(counter + ". Binary Math"); 
+        counter++; 
+        System.out.println(counter + ". Exit");
+    }
 }
 
