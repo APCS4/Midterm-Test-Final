@@ -36,9 +36,9 @@ public class RandomLogic
         // format question
         ques.question = String.format("Variable 'count' holds " + arg1 +". What is count " + "%s" + "= " + arg2 + "?", operator );
         
+        // variables so we can print the answers - initialize them
         int temp1;
         int temp2;
-        
         temp1 = arg1 + arg2;
         temp2 = arg1 - arg2;
         
@@ -53,10 +53,12 @@ public class RandomLogic
         int ans = 0;
         switch(operator)
         {
+            // plus gets / plus equals
             case '+':
                 ans = arg1 + arg2;
                 ques.answerKey = ques.answerA;
                 break;
+            // minus gets / minus equals
             case '-':
                 ans = arg1 - arg2;
                 ques.answerKey = ques.answerD;
@@ -91,10 +93,12 @@ public class RandomLogic
         boolean ans = false;
         switch(operator)
         {
+            // and
             case "&&":
                 ans = (arg1 && arg2);
                 ques.answerKey = ques.answerA;
                 break;
+            // or
             case "||":
                 ans = (arg1 || arg2);
                 ques.answerKey = ques.answerD;

@@ -83,6 +83,10 @@ public class MidTermTest
                 break; 
             
             case 2:
+                System.out.println("Running RandomLogic");
+                RandomLogic rand = new RandomLogic();
+                rand.askQuestion();
+            case 3:
                 System.out.println("Exiting...");
                 break infiniteLoop;
             
@@ -106,6 +110,7 @@ public class MidTermTest
         counter++;
         System.out.println(counter + ". Binary Math"); 
         counter++; 
+        System.out.println(counter + ". Random Logic");
         System.out.println(counter + ". Exit");
     }
 }
