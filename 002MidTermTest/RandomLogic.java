@@ -50,7 +50,7 @@ public class RandomLogic
         ques.choiceE = "None of the above";
         
         // real time calc answer based off args AND operator
-        int ans;
+        int ans = 0;
         switch(operator)
         {
             case '+':
@@ -62,7 +62,7 @@ public class RandomLogic
                 ques.answerKey = ques.answerD;
                 break;
             default: // not supported
-                return false;
+                break;
         }
             
         // format question answer based off of operation calculation
@@ -88,7 +88,7 @@ public class RandomLogic
         ques.choiceE = "None of the above";
         
         // real time calc answer based off args AND operator
-        boolean ans;
+        boolean ans = false;
         switch(operator)
         {
             case "&&":
@@ -100,7 +100,7 @@ public class RandomLogic
                 ques.answerKey = ques.answerD;
                 break;
             default: // not supported
-                return false;
+                break;
         }
             
         // format question answer based off of operation calculation
