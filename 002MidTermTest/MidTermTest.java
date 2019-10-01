@@ -37,60 +37,62 @@ import java.util.*;
 public class MidTermTest
 {
     
-  static Scanner sc = new Scanner(System.in);  
-  
-  int correct = 0;
-  int questions = 0;
-  static int counter = 0; 
-  /**
-   *  The main program for the MidTerm class
-   *
-   * @param  args  The command line arguments
-   */
-  public static void main(String[] args)
-  {
-     // BlueJ clear console command
-     Shortcuts.clearScreen(); 
-     
-     // MathOpFun is Class that askQuestions about Math Operators
-     
-     runMenu(); 
-     
-     
+    static Scanner sc = new Scanner(System.in);  
+    
+    int correct = 0;
+    int questions = 0;
+    static int counter = 0; 
+    /**
+    *  The main program for the MidTerm class
+    *
+    * @param  args  The command line arguments
+    */
+    public static void main(String[] args)
+    {
+        // BlueJ clear console command
+        Shortcuts.clearScreen(); 
+        Counting tally = new Counting();    
+        runMenu(tally);      
+        tally.printCounters();
     }
     
-    private static void runMenu() {
-     int runNumber = 0;
-        infiniteLoop: 
-    for(;;) {
-    displayMenu();
-    runNumber = Shortcuts.getInt(0,counter);
-    Shortcuts.clearScreen();
+    private static void runMenu(Counting tally) 
+    {
+        int runNumber = 0;
+    infiniteLoop: 
+        for(;;) {
+            displayMenu();
+            runNumber = Shortcuts.getInt(0,counter);
+            Shortcuts.clearScreen();
+            
+            switch(runNumber) {
+            case 0:
+                System.out.println("Running MathOps Fun ");
+                MathOpsFun math = new MathOpsFun();
+                math.askQuestion(); 
+                break; 
+            
+            case 1:
+                System.out.println("Running BinaryMath");
+                BinaryMath bmath = new BinaryMath(tally); 
+                bmath.askQuestion('+'); 
+                bmath.askQuestion('-'); 
+                bmath.askQuestion('&'); 
+                bmath.askQuestion('|'); 
+                bmath.askQuestion('/'); 
+                break; 
+            
+            case 2:
+                System.out.println("Exiting...");
+                break infiniteLoop;
+            
+            default: 
+                System.out.println("This is not valid. Please try again"); 
+            }    
     
-    switch(runNumber) {
-    case 0:
-    System.out.println("Running MathOps Fun ");
-    MathOpsFun math = new MathOpsFun();
-    math.askQuestion(); 
-    break; 
-    
-    case 1:
-    System.out.println("Running BinaryMath");
-    BinaryMath bmath = new BinaryMath(); 
-    bmath.askQuestion(); 
-    break; 
-    
-    case 2:
-    System.out.println("Exiting...");
-    break infiniteLoop;
-    
-    default: 
-    System.out.println("This is not valid. Please try again"); 
-    }    
-    
-    //sc.nextLine();
-    sc.nextLine(); //Needs to be called twice in order to function properly
-    } 
+        //sc.nextLine();
+        sc.nextLine(); //Needs to be called twice in order to function properly
+        } 
     
     }
     

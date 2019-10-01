@@ -16,8 +16,8 @@ public class Counting
     public Counting()
     {
         // initialise arrays
-        correct = new int[4];
-        questions = new int[4];
+        correct = new int[5];
+        questions = new int[5];
     }
 
     public void updateCounters(Boolean isCorrect, int station)
