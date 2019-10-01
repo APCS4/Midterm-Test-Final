@@ -1,18 +1,10 @@
 #BlueJ class context
 comment0.target=BinaryMath
-<<<<<<< HEAD
-comment1.params=
-comment1.target=BinaryMath()
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Binary\r\n
-comment2.params=
-comment2.target=void\ askQuestion()
-=======
 comment1.params=_tally
 comment1.target=BinaryMath(Counting)
 comment1.text=\n\ Constructor\ for\ objects\ of\ class\ Binary\n
 comment2.params=operator
 comment2.target=void\ askQuestion(char)
->>>>>>> completed 5 binary questions
 comment3.params=arg\ binaryLength
 comment3.target=java.lang.String\ zeroPadToBinary(int,\ int)
 comment4.params=

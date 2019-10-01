@@ -21,11 +21,11 @@ public class RandomLogic
     {
         Counting count = new Counting();
         
-        count.updateCounters(PlusGetsMinusGets(46, '+', 7));
-        count.updateCounters(PlusGetsMinusGets(46, '-', 7));
-        count.updateCounters(AndOr(true, "||", false));
-        count.updateCounters(AndOr(true, "&&", false));
-        tally.printCounters();
+        count.updateCounters(PlusGetsMinusGets(46, '+', 7), 1);
+        count.updateCounters(PlusGetsMinusGets(46, '-', 7), 1);
+        count.updateCounters(AndOr(true, "||", false), 1);
+        count.updateCounters(AndOr(true, "&&", false), 1);
+        count.printCounters();
     }
     
      public Boolean PlusGetsMinusGets(int arg1, char operator, int arg2)
