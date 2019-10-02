@@ -56,8 +56,6 @@ public class MidTermTest
         tally.printCounters();
     }
     
-    // :)
-    
     private static void runMenu(Counting tally) 
     {
         int runNumber = 0;
@@ -69,9 +67,10 @@ public class MidTermTest
             
             switch(runNumber) {
             case 0:
-                System.out.println("Exiting...");
-                break infiniteLoop;
-                
+                System.out.println("Running MathOps Fun ");
+                MathOpsFun math = new MathOpsFun();
+                math.askQuestion(); 
+                break; 
             
             case 1:
                 System.out.println("Running BinaryMath");
@@ -84,23 +83,15 @@ public class MidTermTest
                 break; 
             
             case 2:
-                System.out.println("Running BooleanLogic");
-                BooleanLogic bl = new BooleanLogic(); 
-                bl.askQuestion(); 
+                System.out.println("Running RandomLogic");
+                RandomLogic rand = new RandomLogic();
+                rand.askQuestion();
                 break;
                 
             case 3:
-                System.out.println("Running MathOps Fun ");
-                MathOpsFun math = new MathOpsFun();
-                math.askQuestion(); 
-                break; 
+                System.out.println("Exiting...");
+                break infiniteLoop;
             
-            case 4: 
-                System.out.println("Running ComplexAssignments ");
-                ComplexAssignments ca = new ComplexAssignments();
-                ca.askQuestion(); 
-                break;
-                
             default: 
                 System.out.println("This is not valid. Please try again"); 
             }    
@@ -117,15 +108,13 @@ public class MidTermTest
         
         System.out.println("Which test would you like to take?");
         Shortcuts.displayLine(); 
-        System.out.println(counter + ". Exit"); 
+        System.out.println(counter + ". MathOps Fun"); 
         counter++;
         System.out.println(counter + ". Binary Math"); 
         counter++; 
-        System.out.println(counter + ". Boolean Logic");
+        System.out.println(counter + ". Random Logic");
         counter++;
-        System.out.println(counter + ". MathOpsFun");
-        counter++;
-        System.out.println(counter + ". Complex Assignments");
+        System.out.println(counter + ". Exit");
     }
 }
 

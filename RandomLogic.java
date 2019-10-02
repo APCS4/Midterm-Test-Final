@@ -5,7 +5,7 @@
  * @author (your name)
  * @version (a version number or a date)
  */
-public class ComplexAssignments
+public class RandomLogic
 {
     /**
      * An example of a method - replace this comment with your own
@@ -13,7 +13,7 @@ public class ComplexAssignments
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public ComplexAssignments()
+    public RandomLogic()
     {
     }
     
@@ -23,8 +23,8 @@ public class ComplexAssignments
         
         count.updateCounters(PlusGetsMinusGets(46, '+', 7), 1);
         count.updateCounters(PlusGetsMinusGets(46, '-', 7), 1);
-        //count.updateCounters(AndOr(true, "||", false), 1);
-        //count.updateCounters(AndOr(true, "&&", false), 1);
+        count.updateCounters(AndOr(true, "||", false), 1);
+        count.updateCounters(AndOr(true, "&&", false), 1);
     }
     
      public Boolean PlusGetsMinusGets(int arg1, char operator, int arg2)
@@ -73,7 +73,6 @@ public class ComplexAssignments
         return ques.getAnswer();
     }
     
-    /*
     public Boolean AndOr(boolean arg1, String operator, boolean arg2)
     {
         // prepare question from Question class
@@ -112,5 +111,5 @@ public class ComplexAssignments
         
         // getAnswer return true if question is correct
         return ques.getAnswer();
-    } */
+    }
 }
