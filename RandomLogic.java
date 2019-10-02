@@ -5,6 +5,8 @@
  * @author (your name)
  * @version (a version number or a date)
  */
+
+import java.util.Random;
 public class RandomLogic
 {
     /**
@@ -20,9 +22,19 @@ public class RandomLogic
     public void askQuestion() 
     {
         Counting count = new Counting();
+        Random first = new Random();
+        int hold;
+        int hold2;
         
-        count.updateCounters(PlusGetsMinusGets(46, '+', 7), 1);
-        count.updateCounters(PlusGetsMinusGets(46, '-', 7), 1);
+        hold = first.nextInt(101);
+        hold2 = first.nextInt(101);
+        count.updateCounters(PlusGetsMinusGets(hold, '+', hold2), 1);
+        
+        hold = first.nextInt(101);
+        hold2 = first.nextInt(101);
+        count.updateCounters(PlusGetsMinusGets(hold, '-', hold2), 1);
+        
+        
         count.updateCounters(AndOr(true, "||", false), 1);
         count.updateCounters(AndOr(true, "&&", false), 1);
     }
@@ -33,7 +45,7 @@ public class RandomLogic
         Question ques = new Question();
         
         // format question
-        ques.question = String.format("Variable 'count' holds " + arg1 +". What is count " + "%s" + "= " + arg2 + "?", operator );
+        ques.question = String.format("Variable 'count' holds " + arg1 +". What is count after count " + "%s" + "= " + arg2 + "?", operator );
         
         // variables so we can print the answers - initialize them
         int temp1;
@@ -67,7 +79,7 @@ public class RandomLogic
         }
             
         // format question answer based off of operation calculation
-        ques.answer =  String.format("Count holds " + arg1 + ". " + arg1 + " " + "%s " + arg2 + " = " + ans + ", so count now holds " + ans, operator);
+        ques.answer =  String.format("Count holds " + arg1 + ". " + arg1 + " " + "%s " + arg2 + " = " + ans + ", so count now holds " + ans + ".", operator);
         
         // getAnswer return true if question is correct
         return ques.getAnswer();
@@ -100,7 +112,7 @@ public class RandomLogic
             // or
             case "||":
                 ans = (arg1 || arg2);
-                ques.answerKey = ques.answerD;
+                ques.answerKey = ques.answerC;
                 break;
             default: // not supported
                 break;
