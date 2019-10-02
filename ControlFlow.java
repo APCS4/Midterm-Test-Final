@@ -1,4 +1,3 @@
-
 /**
  * Write a description of class ControlFlow here.
  *
@@ -12,9 +11,9 @@ public class ControlFlow
     public int numberCorrect;
     public int roll;
     private Random rand = new Random();
-    public ControlFlow(int qA){
+    /*(public ControlFlow(int qA){
         qAmount = qA;
-    }
+    }*/
     public int askQuestions(){
         return 0;
     }
@@ -125,6 +124,28 @@ public class ControlFlow
         boolean correct = boolQ.getAnswer();
         if(correct)
             numberCorrect-=-1;
+    }
+    public void askLoopControlVar(){
+        String question = "What happens when you don't initialize the loop control variable?";
+        String a = "Your compiler crashes.";
+        String b = "Java produces an error message.";
+        String c = "The code compiles but doesn't work correctly.";
+        String d = "The compiler ignore the error.";
+        String e = "None of the above.";
+        char answer = 'b';
+        Question loopCR = new Question (a, b, c, d, e, question, answer);
+        loopCR.getAnswer();
+    }
+    public void askTernaryOp(){
+        String question = "Given minVal = (a < b) ? a : b; in what situation would minVal = b?";
+        String a = "a = b";
+        String b = "a > b";
+        String c = "minVal will never be b";
+        String d = "b > a";
+        String e = "None of the above.";
+        char answer = 'd';
+        Question ternaryO = new Question (a, b, c, d, e, question, answer);
+        ternaryO.getAnswer();
     }
     private String randomComparator(){
         roll = rand.nextInt(4);

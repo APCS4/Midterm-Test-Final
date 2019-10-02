@@ -89,6 +89,12 @@ public class MidTermTest
                 break;
                 
             case 3:
+                System.out.println("Running ControlFlow");
+                ControlFlow cflow = new ControlFlow();
+                cflow.askQuestions();
+                break;
+                
+            case 4:
                 System.out.println("Exiting...");
                 break infiniteLoop;
             
@@ -114,7 +120,8 @@ public class MidTermTest
         counter++; 
         System.out.println(counter + ". Complex Assignment & Binary Logic");
         counter++;
+        System.out.println(counter + ". Control Flow");
+        counter++;
         System.out.println(counter + ". Exit");
     }
 }
-
