@@ -23,8 +23,8 @@ public class AssignBinLogic
     {
         Counting count = new Counting();
         Random first = new Random();
-        int hold;
-        int hold2;
+        int hold, hold2;
+        boolean temp, temp2;
         
         hold = first.nextInt(101);
         hold2 = first.nextInt(101);
@@ -34,8 +34,13 @@ public class AssignBinLogic
         hold2 = first.nextInt(101);
         count.updateCounters(PlusGetsMinusGets(hold, '-', hold2), 1);
         
-        count.updateCounters(AndOr(true, "||", false), 1);
-        count.updateCounters(AndOr(true, "&&", false), 1);
+        temp = first.nextBoolean();
+        temp2 = first.nextBoolean();        
+        count.updateCounters(AndOr(temp, "||", temp2), 1);
+        
+        temp = first.nextBoolean();
+        temp2 = first.nextBoolean();      
+        count.updateCounters(AndOr(temp, "&&", temp2), 1);
     }
     
      public Boolean PlusGetsMinusGets(int arg1, char operator, int arg2)

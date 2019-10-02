@@ -83,8 +83,8 @@ public class MidTermTest
                 break; 
             
             case 2:
-                System.out.println("Running RandomLogic");
-                RandomLogic rand = new RandomLogic();
+                System.out.println("Running AssignmentBinaryLogic");
+                AssignBinLogic rand = new AssignBinLogic();
                 rand.askQuestion();
                 break;
                 
@@ -112,7 +112,7 @@ public class MidTermTest
         counter++;
         System.out.println(counter + ". Binary Math"); 
         counter++; 
-        System.out.println(counter + ". Random Logic");
+        System.out.println(counter + ". Complex Assignment & Binary Logic");
         counter++;
         System.out.println(counter + ". Exit");
     }
