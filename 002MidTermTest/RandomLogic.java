@@ -67,7 +67,7 @@ public class RandomLogic
         }
             
         // format question answer based off of operation calculation
-        ques.answer =  String.format("Count holds " + arg1 + ". " + arg1 + " " + "%s " + arg2 + " = " + ans, operator);
+        ques.answer =  String.format("Count holds " + arg1 + ". " + arg1 + " " + "%s " + arg2 + " = " + ans + ", so count now holds " + ans, operator);
         
         // getAnswer return true if question is correct
         return ques.getAnswer();
