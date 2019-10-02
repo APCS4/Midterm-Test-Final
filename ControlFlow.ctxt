@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=ControlFlow
+comment1.params=qA
+comment1.target=ControlFlow(int)
+comment2.params=
+comment2.target=int\ askQuestions()
+comment3.params=
+comment3.target=void\ askBinaryMath()
+comment4.params=
+comment4.target=void\ askBoolLogic()
+comment5.params=
+comment5.target=java.lang.String\ randomComparator()
+comment6.params=
+comment6.target=java.lang.String\ randomBinOperator()
+comment7.params=chA\ chB\ chC\ chD\ chE\ ques\ ans
+comment7.target=boolean\ shuffleAndAsk(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ int)
+numComments=8
