@@ -7,7 +7,7 @@
  */
 
 import java.util.Random;
-public class RandomLogic
+public class AssignBinLogic
 {
     /**
      * An example of a method - replace this comment with your own
@@ -15,7 +15,7 @@ public class RandomLogic
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public RandomLogic()
+    public AssignBinLogic()
     {
     }
     
@@ -33,7 +33,6 @@ public class RandomLogic
         hold = first.nextInt(101);
         hold2 = first.nextInt(101);
         count.updateCounters(PlusGetsMinusGets(hold, '-', hold2), 1);
-        
         
         count.updateCounters(AndOr(true, "||", false), 1);
         count.updateCounters(AndOr(true, "&&", false), 1);
