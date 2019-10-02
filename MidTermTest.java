@@ -84,7 +84,7 @@ public class MidTermTest
             
             case 2:
                 System.out.println("Running AssignmentBinaryLogic");
-                AssignBinLogic rand = new AssignBinLogic();
+                AssignBinLogic rand = new AssignBinLogic(tally);
                 rand.askQuestion();
                 break;
                 

@@ -9,38 +9,39 @@
 import java.util.Random;
 public class AssignBinLogic
 {
+    Counting tally;
     /**
      * An example of a method - replace this comment with your own
      *
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public AssignBinLogic()
+    public AssignBinLogic(Counting tally1)
     {
+        tally = tally1;
     }
     
     public void askQuestion() 
     {
-        Counting count = new Counting();
         Random first = new Random();
         int hold, hold2;
         boolean temp, temp2;
         
         hold = first.nextInt(101);
         hold2 = first.nextInt(101);
-        count.updateCounters(PlusGetsMinusGets(hold, '+', hold2), 1);
+        tally.updateCounters(PlusGetsMinusGets(hold, '+', hold2), 4);
         
         hold = first.nextInt(101);
         hold2 = first.nextInt(101);
-        count.updateCounters(PlusGetsMinusGets(hold, '-', hold2), 1);
+        tally.updateCounters(PlusGetsMinusGets(hold, '-', hold2), 4);
         
         temp = first.nextBoolean();
         temp2 = first.nextBoolean();        
-        count.updateCounters(AndOr(temp, "||", temp2), 1);
+        tally.updateCounters(AndOr(temp, "||", temp2), 4);
         
         temp = first.nextBoolean();
         temp2 = first.nextBoolean();      
-        count.updateCounters(AndOr(temp, "&&", temp2), 1);
+        tally.updateCounters(AndOr(temp, "&&", temp2), 4);
     }
     
      public Boolean PlusGetsMinusGets(int arg1, char operator, int arg2)
