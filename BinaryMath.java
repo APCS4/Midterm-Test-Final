@@ -2,7 +2,7 @@
 /**
  * Write a description of class Binary here.
  *
- * @author (your name)
+ * @author Sydney Hsieh
  * @version (a version number or a date)
  */
 
@@ -21,7 +21,6 @@ public class BinaryMath
         tally = _tally;
     }
     
-    
     public void askQuestion(char operator)
     {
         System.out.println("Binary: Question " + count++);
@@ -31,11 +30,13 @@ public class BinaryMath
 
     }
     
+    //Converts integer values into a binary string
     static String zeroPadToBinary(int arg, int binaryLength)
     {
         return Integer.toBinaryString((1<<binaryLength)| arg).substring(1);
     }
     
+    //generate random numbers for question
     public static int[] getTwoRandomNumbers()
     {
         Question question = new Question();
@@ -46,11 +47,10 @@ public class BinaryMath
             args = new Random().ints(1, 15).distinct().limit(2).toArray();
         } while (args[0] <= 1 || args[1] > args[0] || args[1] <= 1 || args[0] % args[1] != 0);
        
-        //BinaryMath.formatQuestion(args[0],'/', args[1]);
-        
         return args;
     }
     
+    //generate random binary number choices
     public static String getRandomBinString(int answer)
     {
         boolean successful = false;
@@ -71,14 +71,20 @@ public class BinaryMath
         return binString;
         
     }
+    
+    //format question, choices, and answers
     public boolean formatChoices(int first, char operator, int second) {
         
+        //Formating question
         Question theQuestion = new Question();
         String binary1 = BinaryMath.zeroPadToBinary(first, 4);
         String binary2 = BinaryMath.zeroPadToBinary(second, 4);
         theQuestion.question = String.format(binary1 + " %s " + binary2 + " = ", operator);
+        
+        //bit length
         int bits = ((first + second) > 15) ? 5 : 4;
         
+        //Assigning Choices A through E
         int answerCalc;
         switch(operator)
         {
@@ -133,7 +139,8 @@ public class BinaryMath
              
         }
         
-        String binary3 = BinaryMath.zeroPadToBinary(answerCalc, 4);
+        //format answer statement
+        String binary3 = BinaryMath.zeroPadToBinary(answerCalc, bits);
         theQuestion.answer = String.format(binary1 + " %s " + binary2 + " = %s (%d)", operator, binary3, answerCalc);
         return theQuestion.getAnswer();
     }
