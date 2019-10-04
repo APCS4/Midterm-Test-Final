@@ -176,6 +176,7 @@ public class AssignBinLogic
 
        Question question = new Question(answers[rOrd[0]], answers[rOrd[1]], answers[rOrd[2]], answers[rOrd[3]], answers[rOrd[4]], q, ans);
        
+       question.answer = ("Correct answer: " + answers[answerLocation]);
        return question.getAnswer();
     }
 }
