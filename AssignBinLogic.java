@@ -24,8 +24,8 @@ public class AssignBinLogic
     public void askQuestion() 
     {
         Random first = new Random();
-        int hold, hold2;
-        boolean temp, temp2;
+        int hold, hold2;    // Random numbers for math questions
+        boolean temp, temp2;    // Random booleans for comparing questions
         
         hold = first.nextInt(101);
         hold2 = first.nextInt(101);
@@ -42,9 +42,19 @@ public class AssignBinLogic
         temp = first.nextBoolean();
         temp2 = first.nextBoolean();      
         tally.updateCounters(AndOr(temp, "&&", temp2), 4);
+        
+        String q = "random.nextInt(10) will generate what";
+        String[] as = {
+            "An int between 0-10, including 0, not including 10",
+            "An int between 0-10, not including 0, not including 10",
+            "An int between 0-10, including 0, including 10",
+            "An int between 0-10, not including 0, including 10",
+            "An int between 0-9, not including 0, including 9"};
+        int a = 0;
+        tally.updateCounters(McQ(q,as,a), 4);
     }
     
-     public Boolean PlusGetsMinusGets(int arg1, char operator, int arg2)
+     public boolean PlusGetsMinusGets(int arg1, char operator, int arg2)
     {
         // prepare question from Question class
         Question ques = new Question();
@@ -90,7 +100,7 @@ public class AssignBinLogic
         return ques.getAnswer();
     }
     
-    public Boolean AndOr(boolean arg1, String operator, boolean arg2)
+    public boolean AndOr(boolean arg1, String operator, boolean arg2)
     {
         // prepare question from Question class
         Question ques = new Question();
@@ -128,5 +138,31 @@ public class AssignBinLogic
         
         // getAnswer return true if question is correct
         return ques.getAnswer();
+    }
+    
+    public boolean McQ(String q, String[] answers, int answer)
+    {
+       Question ques = new Question();
+        
+       ques.question = q;
+        
+       Random rNum = new Random();
+       int[] randomOrder = {0,1,2,3,4};
+       
+       // randomizes the answers
+       for (int i=0; i<randomOrder.length; i++) {
+          int rPos = rNum.nextInt(randomOrder.length);
+          int temp = randomOrder[i];           
+          randomOrder[i] = randomOrder[rPos];   
+          randomOrder[rPos] = temp;        
+       }
+           
+       ques.choiceA = answers[randomOrder[0]];
+       ques.choiceB = answers[randomOrder[1]];
+       ques.choiceC = answers[randomOrder[2]];
+       ques.choiceD = answers[randomOrder[3]];
+       ques.choiceE = answers[randomOrder[4]];
+        
+       return ques.getAnswer();
     }
 }
