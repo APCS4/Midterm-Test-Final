@@ -140,29 +140,42 @@ public class AssignBinLogic
         return ques.getAnswer();
     }
     
-    public boolean McQ(String q, String[] answers, int answer)
+    public boolean McQ(String q, String[] answers, int answerLocation)
     {
-       Question ques = new Question();
-        
-       ques.question = q;
-        
        Random rNum = new Random();
-       int[] randomOrder = {0,1,2,3,4};
+       int[] rOrd = {0,1,2,3,4};
        
        // randomizes the answers
-       for (int i=0; i<randomOrder.length; i++) {
-          int rPos = rNum.nextInt(randomOrder.length);
-          int temp = randomOrder[i];           
-          randomOrder[i] = randomOrder[rPos];   
-          randomOrder[rPos] = temp;        
+       for (int i=0; i<rOrd.length; i++) {
+          int rPos = rNum.nextInt(rOrd.length);
+          int temp = rOrd[i];           
+          rOrd[i] = rOrd[rPos];   
+          rOrd[rPos] = temp;        
        }
-           
-       ques.choiceA = answers[randomOrder[0]];
-       ques.choiceB = answers[randomOrder[1]];
-       ques.choiceC = answers[randomOrder[2]];
-       ques.choiceD = answers[randomOrder[3]];
-       ques.choiceE = answers[randomOrder[4]];
-        
-       return ques.getAnswer();
+       
+       char ans = 'a';
+       // finds where the correct answer now is, and sets the value of ans to a letter according to the location
+       for (int i=0; i<rOrd.length; i++)
+       {
+           if (rOrd[i] == answerLocation)
+           {
+               switch (i)
+               {
+                  case 0: ans = 'a';
+                    break;
+                  case 1: ans = 'b';
+                    break;
+                  case 2: ans = 'c';
+                    break;
+                  case 3: ans = 'd';
+                    break;
+                  case 4: ans = 'e';
+               }
+           }
+       }
+
+       Question question = new Question(answers[rOrd[0]], answers[rOrd[1]], answers[rOrd[2]], answers[rOrd[3]], answers[rOrd[4]], q, ans);
+       
+       return question.getAnswer();
     }
 }

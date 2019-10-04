@@ -9,6 +9,6 @@ comment3.params=arg1\ operator\ arg2
 comment3.target=boolean\ PlusGetsMinusGets(int,\ char,\ int)
 comment4.params=arg1\ operator\ arg2
 comment4.target=boolean\ AndOr(boolean,\ java.lang.String,\ boolean)
-comment5.params=q\ answers\ answer
+comment5.params=q\ answers\ answerLocation
 comment5.target=boolean\ McQ(java.lang.String,\ java.lang.String[],\ int)
 numComments=6
