@@ -5,26 +5,43 @@
  * @author (your name)
  * @version (a version number or a date)
  */
-public class RandomLogic
+
+import java.util.Random;
+public class AssignBinLogic
 {
+    Counting tally;
     /**
      * An example of a method - replace this comment with your own
      *
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public RandomLogic()
+    public AssignBinLogic(Counting tally1)
     {
+        tally = tally1;
     }
     
     public void askQuestion() 
     {
-        Counting count = new Counting();
+        Random first = new Random();
+        int hold, hold2;
+        boolean temp, temp2;
         
-        count.updateCounters(PlusGetsMinusGets(46, '+', 7), 1);
-        count.updateCounters(PlusGetsMinusGets(46, '-', 7), 1);
-        count.updateCounters(AndOr(true, "||", false), 1);
-        count.updateCounters(AndOr(true, "&&", false), 1);
+        hold = first.nextInt(101);
+        hold2 = first.nextInt(101);
+        tally.updateCounters(PlusGetsMinusGets(hold, '+', hold2), 4);
+        
+        hold = first.nextInt(101);
+        hold2 = first.nextInt(101);
+        tally.updateCounters(PlusGetsMinusGets(hold, '-', hold2), 4);
+        
+        temp = first.nextBoolean();
+        temp2 = first.nextBoolean();        
+        tally.updateCounters(AndOr(temp, "||", temp2), 4);
+        
+        temp = first.nextBoolean();
+        temp2 = first.nextBoolean();      
+        tally.updateCounters(AndOr(temp, "&&", temp2), 4);
     }
     
      public Boolean PlusGetsMinusGets(int arg1, char operator, int arg2)
@@ -33,7 +50,7 @@ public class RandomLogic
         Question ques = new Question();
         
         // format question
-        ques.question = String.format("Variable 'count' holds " + arg1 +". What is count " + "%s" + "= " + arg2 + "?", operator );
+        ques.question = String.format("Variable 'count' holds " + arg1 +". What is count after count " + "%s" + "= " + arg2 + "?", operator );
         
         // variables so we can print the answers - initialize them
         int temp1;
@@ -67,7 +84,7 @@ public class RandomLogic
         }
             
         // format question answer based off of operation calculation
-        ques.answer =  String.format("Count holds " + arg1 + ". " + arg1 + " " + "%s " + arg2 + " = " + ans, operator);
+        ques.answer =  String.format("Count holds " + arg1 + ". " + arg1 + " " + "%s " + arg2 + " = " + ans + ", so count now holds " + ans + ".", operator);
         
         // getAnswer return true if question is correct
         return ques.getAnswer();
@@ -100,7 +117,7 @@ public class RandomLogic
             // or
             case "||":
                 ans = (arg1 || arg2);
-                ques.answerKey = ques.answerD;
+                ques.answerKey = ques.answerC;
                 break;
             default: // not supported
                 break;

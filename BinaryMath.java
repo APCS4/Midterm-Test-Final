@@ -2,7 +2,7 @@
 /**
  * Write a description of class Binary here.
  *
- * @author (your name)
+ * @author Sydney Hsieh
  * @version (a version number or a date)
  */
 
@@ -21,7 +21,6 @@ public class BinaryMath
         tally = _tally;
     }
     
-    
     public void askQuestion(char operator)
     {
         System.out.println("Binary: Question " + count++);
@@ -31,11 +30,13 @@ public class BinaryMath
 
     }
     
+    //Converts integer values into a binary string
     static String zeroPadToBinary(int arg, int binaryLength)
     {
         return Integer.toBinaryString((1<<binaryLength)| arg).substring(1);
     }
     
+    //generate random numbers for question
     public static int[] getTwoRandomNumbers()
     {
         Question question = new Question();
@@ -46,23 +47,23 @@ public class BinaryMath
             args = new Random().ints(1, 15).distinct().limit(2).toArray();
         } while (args[0] <= 1 || args[1] > args[0] || args[1] <= 1 || args[0] % args[1] != 0);
        
-        //BinaryMath.formatQuestion(args[0],'/', args[1]);
-        
         return args;
     }
     
-    public static String getRandomBinString(String answer)
+    //generate random binary number choices
+    public static String getRandomBinString(int answer)
     {
         boolean successful = false;
-        int randNum = (int)(Math.random()*10);
+        int args[] = new Random().ints(1, 15).distinct().limit(1).toArray();
+        int randNum = args[0];
         String binString = BinaryMath.zeroPadToBinary(randNum, 4);
         
         while (!successful) 
-        {    if (randNum == (Integer.parseInt(answer)))
-            {   randNum = (int)(Math.random()*10);
+        {    
+            if (randNum == (answer))
+            {   randNum = (int)(Math.random()*15);
                 binString = BinaryMath.zeroPadToBinary(randNum, 4);
-                System.out.println(binString);
-                return binString;
+                //System.out.println(binString);          
             } else {
                 successful = true;
             }
@@ -70,60 +71,66 @@ public class BinaryMath
         return binString;
         
     }
+    
+    //format question, choices, and answers
     public boolean formatChoices(int first, char operator, int second) {
         
+        //Formating question
         Question theQuestion = new Question();
         String binary1 = BinaryMath.zeroPadToBinary(first, 4);
         String binary2 = BinaryMath.zeroPadToBinary(second, 4);
         theQuestion.question = String.format(binary1 + " %s " + binary2 + " = ", operator);
         
+        //bit length
+        int bits = ((first + second) > 15) ? 5 : 4;
+        
+        //Assigning Choices A through E
         int answerCalc;
         switch(operator)
         {
              case '+':
-                theQuestion.choiceC = BinaryMath.zeroPadToBinary(first + second,4);
-                theQuestion.choiceA = BinaryMath.getRandomBinString(theQuestion.choiceC);
-                theQuestion.choiceB = BinaryMath.getRandomBinString(theQuestion.choiceC);
-                theQuestion.choiceD = BinaryMath.getRandomBinString(theQuestion.choiceC);
-                theQuestion.choiceE = "None of the above";
                 answerCalc = first + second;
+                theQuestion.choiceC = BinaryMath.zeroPadToBinary(first + second,bits);
+                theQuestion.choiceA = BinaryMath.getRandomBinString(answerCalc);
+                theQuestion.choiceB = BinaryMath.getRandomBinString(answerCalc);
+                theQuestion.choiceD = BinaryMath.getRandomBinString(answerCalc);
+                theQuestion.choiceE = "None of the above";
                 theQuestion.answerKey = theQuestion.answerC;
                 break;
              case '-':
-                theQuestion.choiceB = BinaryMath.zeroPadToBinary(first-second,4);
-                theQuestion.choiceA = BinaryMath.getRandomBinString(theQuestion.choiceB);
-                theQuestion.choiceC = BinaryMath.getRandomBinString(theQuestion.choiceB);
-                theQuestion.choiceD = BinaryMath.getRandomBinString(theQuestion.choiceB);
-                theQuestion.choiceE = "None of the above";
                 answerCalc = first - second;
+                theQuestion.choiceB = BinaryMath.zeroPadToBinary(first-second,4);
+                theQuestion.choiceA = BinaryMath.getRandomBinString(answerCalc);
+                theQuestion.choiceC = BinaryMath.getRandomBinString(answerCalc);
+                theQuestion.choiceD = BinaryMath.getRandomBinString(answerCalc);
+                theQuestion.choiceE = "None of the above";
                 theQuestion.answerKey = theQuestion.answerB;
                 break;
              case '/':
-                theQuestion.choiceA = BinaryMath.zeroPadToBinary(first/second,4);
-                System.out.println(theQuestion.choiceA);
-                theQuestion.choiceB = BinaryMath.getRandomBinString(theQuestion.choiceA);
-                theQuestion.choiceC = BinaryMath.getRandomBinString(theQuestion.choiceA);
-                theQuestion.choiceD = BinaryMath.getRandomBinString(theQuestion.choiceA);
-                theQuestion.choiceE = "None of the above";
                 answerCalc = first / second;
+                theQuestion.choiceA = BinaryMath.zeroPadToBinary(first/second,4);
+                theQuestion.choiceB = BinaryMath.getRandomBinString(answerCalc);
+                theQuestion.choiceC = BinaryMath.getRandomBinString(answerCalc);
+                theQuestion.choiceD = BinaryMath.getRandomBinString(answerCalc);
+                theQuestion.choiceE = "None of the above";
                 theQuestion.answerKey = theQuestion.answerA;
                 break;
              case '&':
-                theQuestion.choiceD = BinaryMath.zeroPadToBinary(first&second,4);
-                theQuestion.choiceA = BinaryMath.getRandomBinString(theQuestion.choiceD);
-                theQuestion.choiceB = BinaryMath.getRandomBinString(theQuestion.choiceD);
-                theQuestion.choiceC = BinaryMath.getRandomBinString(theQuestion.choiceD);
-                theQuestion.choiceE = "None of the above";
                 answerCalc = first & second;
+                theQuestion.choiceD = BinaryMath.zeroPadToBinary(first&second,4);
+                theQuestion.choiceA = BinaryMath.getRandomBinString(answerCalc);
+                theQuestion.choiceB = BinaryMath.getRandomBinString(answerCalc);
+                theQuestion.choiceC = BinaryMath.getRandomBinString(answerCalc);
+                theQuestion.choiceE = "None of the above";
                 theQuestion.answerKey = theQuestion.answerD;
                 break;
              case '|':
-                theQuestion.choiceE = "None of the above";
-                theQuestion.choiceA = BinaryMath.getRandomBinString("0");
-                theQuestion.choiceB = BinaryMath.getRandomBinString("0");
-                theQuestion.choiceC = BinaryMath.getRandomBinString("0");
-                theQuestion.choiceD = BinaryMath.getRandomBinString("0");
                 answerCalc = first | second;
+                theQuestion.choiceE = "None of the above";
+                theQuestion.choiceA = BinaryMath.getRandomBinString(answerCalc);
+                theQuestion.choiceB = BinaryMath.getRandomBinString(answerCalc);
+                theQuestion.choiceC = BinaryMath.getRandomBinString(answerCalc);
+                theQuestion.choiceD = BinaryMath.getRandomBinString(answerCalc);
                 theQuestion.answerKey = theQuestion.answerE;
                 break;
              default: // not supported
@@ -132,7 +139,8 @@ public class BinaryMath
              
         }
         
-        String binary3 = BinaryMath.zeroPadToBinary(answerCalc, 4);
+        //format answer statement
+        String binary3 = BinaryMath.zeroPadToBinary(answerCalc, bits);
         theQuestion.answer = String.format(binary1 + " %s " + binary2 + " = %s (%d)", operator, binary3, answerCalc);
         return theQuestion.getAnswer();
     }

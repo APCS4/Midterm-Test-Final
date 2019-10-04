@@ -55,7 +55,7 @@ public class MidTermTest
         runMenu(tally);      
         tally.printCounters();
     }
-    
+    //iejgoijgeiojgierjge
     private static void runMenu(Counting tally) 
     {
         int runNumber = 0;
@@ -83,12 +83,18 @@ public class MidTermTest
                 break; 
             
             case 2:
-                System.out.println("Running RandomLogic");
-                RandomLogic rand = new RandomLogic();
+                System.out.println("Running AssignmentBinaryLogic");
+                AssignBinLogic rand = new AssignBinLogic(tally);
                 rand.askQuestion();
                 break;
                 
             case 3:
+                System.out.println("Running ControlFlow");
+                ControlFlow cflow = new ControlFlow();
+                cflow.askQuestions();
+                break;
+                
+            case 4:
                 System.out.println("Exiting...");
                 break infiniteLoop;
             
@@ -112,9 +118,10 @@ public class MidTermTest
         counter++;
         System.out.println(counter + ". Binary Math"); 
         counter++; 
-        System.out.println(counter + ". Random Logic");
+        System.out.println(counter + ". Complex Assignment & Binary Logic");
+        counter++;
+        System.out.println(counter + ". Control Flow");
         counter++;
         System.out.println(counter + ". Exit");
     }
 }
-
