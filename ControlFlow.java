@@ -160,7 +160,8 @@ public class ControlFlow
                 return "^";
                 
             case 0:
-                return "=";
+                return "==";
+                
             default:
                 return "";
         }
